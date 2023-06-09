@@ -48,13 +48,9 @@ func newFileInfo(fileName string, buffer []byte, fileExtName string) (*fileInfo,
 			return nil, fmt.Errorf("file %q size is zero", fileName)
 		}
 
-		var fileextName string
 		index := strings.LastIndexByte(fileName, '.')
 		if index != -1 {
-			fileextName = fileName[index+1:]
-			if len(fileextName) > 6 {
-				fileExtName = fileextName[:6]
-			}
+			fileExtName = fileName[index+1:]
 		}
 
 		return &fileInfo{
